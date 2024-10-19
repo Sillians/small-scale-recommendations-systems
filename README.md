@@ -11,11 +11,12 @@ interests and desires on a highly personalized level, recommender systems are a 
 They can drive consumers to just about any product or service that interests them, from books to videos to health classes to clothing.
 
 
-[//]: # (<div style="text-align: center;">)
+<div style="text-align: center;">
 
-[//]: # (    <img src="assets/Untitled-2024-09-14-1236.png" alt="MarineGEO circle logo" style="height: 600px; width: 500px;"/>)
+    <img src="assets/Untitled-2024-09-14-1236.png" alt="MarineGEO circle logo" style="height: 600px; width: 500px;"/>
 
-[//]: # (</div>)
+</div>
+
 
 <p style="text-align: center"><img src="assets/Untitled-2024-09-14-1236.png"></p>
 
