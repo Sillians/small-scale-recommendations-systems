@@ -98,12 +98,14 @@ interaction given these properties at the current moment by adding content and c
 Matrix factorization (MF) techniques are the core of many popular algorithms, including word embedding and topic embedding, and have become a dominant methodology
 with collaborative-filtering-based recommendation. MF can be used to calculate the similarity in user's ratings or interactions to provide recommendations.
 In the simple user item matrix below, `Yinka` and `Musa` like movies `B` and `C`. `Jidenna` likes movie `B`. To recommend a movie to `Jidenna`, matrix factorization
-calculates that users who liked `B` also liked `C`, so `C` is a possible recommendation for `Jidenna`
+calculates that users who liked `B` also liked `C`, so `C` is a possible recommendation for `Jidenna`.
 
 
 <div style="text-align: center;">
-    <img src="assets/matrix-factorization.png" alt="matrix-factorization image" style="height: 350px; width: 300px;"/>
+    <img src="assets/matrix-factorization.png" alt="matrix-factorization image" style="height: 300px; width: 300px;"/>
 </div>
+
+
 
 
 
