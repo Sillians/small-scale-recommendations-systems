@@ -22,7 +22,7 @@ There are quite a vast number of recommender algorithms and techniques, most fal
 - content filtering, and
 - context filtering
 
-1. `Collaborative Filtering:` CF algorithms recommend items (filtering part) based on preference information from many users (collaborative part).
+1. Collaborative Filtering: CF algorithms recommend items (filtering part) based on preference information from many users (collaborative part).
 This approach uses similarity of user preference behaviour, given previous interactions between users and items, recommender algorithms learn to predict future 
 interaction. These recommender systems build a model from a user's past behavior, such as items purchased previously or ratings given to those items and similar
 decisions by other users. The idea is that if some people have made similar decisions and purchases in the past, like a movie choice, then there is a high 
@@ -35,7 +35,7 @@ it might recommend a movie to you that it knows this other user already likes.
 </div>
 
 
-2. `Content Filtering:` This, by contrast, uses the attributes or features of an item (content part) to recommend other items similar
+2. Content Filtering: This, by contrast, uses the attributes or features of an item (content part) to recommend other items similar
 to the user's preferences. This approach is based on similarity of item and user features, given information about a user and items they
 have interacted with (e.g. a user’s age, the category of a restaurant’s cuisine, the average review for a movie), model the likelihood of 
 a new interaction. For example, if a content filtering recommender sees you liked the movies `You've Got Mail` and `Sleepless in Seatle`,
@@ -47,7 +47,7 @@ it might recommend another movie to you with the same genres and/or cast.
 </div>
 
 
-3. `Context Filtering:` This includes users' contextual information in the recommendation process. `Nexflix` makes better recommendations
+3. Context Filtering: This includes users' contextual information in the recommendation process. `Nexflix` makes better recommendations
 by framing a recommendation as a contextual sequence prediction. This approach uses a sequence of contextual user actions, plus the 
 current context, to predict the probability of the next action. Given one sequence for each user-the country, device, date, and time when
 they watched a movies-`Nexflix` trained a model to predict what to watch next.
