@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+redis
+redisvl
+python-dotenv
+sentence-transformers
+pyyaml

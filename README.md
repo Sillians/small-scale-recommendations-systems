@@ -106,7 +106,18 @@ calculates that users who liked `B` also liked `C`, so `C` is a possible recomme
 </div>
 
 
+Matrix factorization using `alternating least squares (ALS)` algorithm approximates the sparse user item rating matrix `u`-by-`i` as the 
+product of two dense matrices, user and item factor matrices of size `u` x `f` and `f` x `i` (where `u` is the number of users, `i` the number
+of items and `f` the number of latent features (factors)). The factor matrices represent latent or hidden features which the algorithm 
+tries to discover. One matrix tries to describe the latent or hidden features of each user, and one tries to describe latent properties of 
+each movie. For each `user` and for each `item`, the `ALS` algorithm iteratively learns `(f)` numeric `"factors"` that represent the user
+or item. In each iteration, the algorithm alternatively fixes one factor matrix and optimizes for the other, and this process continuous
+until convergence or until it converges.
 
+
+<div style="text-align: center;">
+    <img src="assets/user-item-latent-factor.png" alt="matrix-factorization image" style="height: 350px; width: 800px;"/>
+</div>
 
 
 
