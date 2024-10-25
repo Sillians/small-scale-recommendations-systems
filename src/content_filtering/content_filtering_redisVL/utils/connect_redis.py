@@ -1,11 +1,11 @@
 import redis
-from utils.logger import get_logger
-from utils.config import get_config
+from content_filtering_redisVL.utils.logger import get_logger
+from content_filtering_redisVL.utils.config import get_config
 
 class RedisClient:
     def __init__(self):
         self.config = get_config()
-        self.logger = get_logger("Redis Database Client")
+        self.logger = get_logger("Redis Database Client Connection...")
         self.client = None
 
     def connect(self) -> redis.Redis:
@@ -15,8 +15,7 @@ class RedisClient:
                 port=self.config.REDIS_PORT,
                 password=self.config.REDIS_PASSWORD
             )
-            self.logger.info("Connection to the Redis database client successful.")
+            self.logger.info("Connection to the Redis database client established.")
             return self.client
         except Exception as e:
             self.logger.error(f"Error connecting to the Redis database client: {e}")
-

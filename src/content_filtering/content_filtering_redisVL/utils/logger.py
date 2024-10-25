@@ -9,29 +9,33 @@ def get_logger(name: str, log_file: str = "content-filtering.log", level: int = 
     logger for reproducibility and traceability.
     """
 
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
+    # Ensure the logger is only configured once
+    logger = logging.getLogger(__name__)
+    if not logger.hasHandlers():  # Check if the logger already has handlers
 
-    # Prevent logger from propagating to the root logger
-    logger.propagate = False
+        # logger = logging.getLogger(name)
+        logger.setLevel(level)
 
-    # logging format
-    formatter = logging.Formatter(
-        '%(asctime)s | %(name)s | %(levelname)s | %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+        # Prevent logger from propagating to the root logger
+        logger.propagate = False
 
-    # file handler to log to a file
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setFormatter(formatter)
+        # logging format
+        formatter = logging.Formatter(
+            '%(asctime)s | %(name)s | %(levelname)s | %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
 
-    # stream handler to log to the console
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
+        # file handler to log to a file
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setFormatter(formatter)
 
-    # Add the handlers to the logger
-    logger.addHandler(file_handler)
-    logger.addHandler(stream_handler)
+        # stream handler to log to the console
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(formatter)
+
+        # Add the handlers to the logger
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
 
     return logger
 
@@ -49,3 +53,4 @@ if __name__ == "__main__":
 
     logger.info("This is an info message for tracking!")
     logger.error("This is an error message!")
+

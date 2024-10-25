@@ -2,28 +2,30 @@ import ast
 import pandas as pd
 from content_filtering_redisVL.utils.logger import get_logger
 from content_filtering_redisVL.utils.config import get_config
-from content_filtering_redisVL.data.data_preparation import MovieDataLoader
+# from content_filtering_redisVL.data.data_preparation import MovieDataLoader
 
-roman_numerals = ['(I)','(II)','(III)','(IV)', '(V)',
+
+ROMAN_NUMERALS = ['(I)', '(II)', '(III)', '(IV)', '(V)',
                   '(VI)', '(VII)', '(VIII)', '(IX)',
                   '(XI)', '(XII)', '(XVI)', '(XIV)',
                   '(XXXIII)', '(XVIII)', '(XIX)', '(XXVII)']
 
 class MovieDataProcessor:
-    def __init__(self):
+    def __init__(self, data):
         self.config = get_config()
-        self.logger = get_logger("Clean and Process the data")
-        self.df = MovieDataLoader().get_data()
+        self.logger = get_logger("Clean and Process the Downloaded Movie data")
+        # self.df = MovieDataLoader().get_data()
+        self.df = data
 
     def replace_year(self, x: int) -> int:
-        if x in roman_numerals:
-            self.logger.info("replace with the average year of the dataset")
+        if x in ROMAN_NUMERALS:
+            self.logger.info("Replace with the average year of the dataset")
             return 1998
         else:
             return x
 
     def clean_dataset(self) -> pd.DataFrame:
-        self.logger.info("Drop the unnecessary columns...")
+        self.logger.info("Drop all unnecessary columns...")
         self.df.drop(columns=['runtime', 'writer', 'path'], inplace=True)
         self.logger.info("replace roman numerals with average year")
         self.df['year'] = self.df['year'].apply(self.replace_year)
@@ -46,9 +48,6 @@ class MovieDataProcessor:
         new_df = self.clean_dataset()
         self.logger.info("Add a column to the dataframe with all the text we want to embed")
         new_df['full_text'] = new_df["title"] + ". " + new_df["overview"] + " " + new_df['keywords'].apply(lambda x: ', '.join(x))
-        return new_df
-
-
-
-# df_ = MovieDataProcessor().get_full_text_data()
-# print(df_)
+        self.logger.info("The dataset is too large, select the first 1000 rows from the dataset")
+        first_200_df = new_df.head(1000)
+        return first_200_df
