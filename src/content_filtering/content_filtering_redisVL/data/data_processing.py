@@ -2,7 +2,6 @@ import ast
 import pandas as pd
 from content_filtering_redisVL.utils.logger import get_logger
 from content_filtering_redisVL.utils.config import get_config
-# from content_filtering_redisVL.data.data_preparation import MovieDataLoader
 
 
 ROMAN_NUMERALS = ['(I)', '(II)', '(III)', '(IV)', '(V)',
@@ -14,7 +13,6 @@ class MovieDataProcessor:
     def __init__(self, data):
         self.config = get_config()
         self.logger = get_logger("Clean and Process the Downloaded Movie data")
-        # self.df = MovieDataLoader().get_data()
         self.df = data
 
     def replace_year(self, x: int) -> int:
@@ -49,5 +47,5 @@ class MovieDataProcessor:
         self.logger.info("Add a column to the dataframe with all the text we want to embed")
         new_df['full_text'] = new_df["title"] + ". " + new_df["overview"] + " " + new_df['keywords'].apply(lambda x: ', '.join(x))
         self.logger.info("The dataset is too large, select the first 1000 rows from the dataset")
-        first_200_df = new_df.head(1000)
+        first_200_df = new_df.head(500)
         return first_200_df

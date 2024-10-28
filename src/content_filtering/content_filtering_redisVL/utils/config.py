@@ -23,8 +23,6 @@ class DevelopmentConfig(Config):
     """Development-specific configuration."""
     DEBUG = True
     DATAURL = os.getenv('DATAURL')
-    DOC_PREFIX = os.getenv('DOC_PREFIX')
-    CLIENT_KEYS = os.getenv('CLIENT_KEYS')
 
     # Redis connection
     REDIS_HOST = os.getenv('REDIS_HOST')
@@ -33,7 +31,6 @@ class DevelopmentConfig(Config):
 
     # pre-trained redisvl transformer model
     PRETRAINED_REDISVL_MODEL = os.getenv('PRETRAINED_REDISVL_MODEL')
-
     PATH_TO_SAVE_PICKLE_MODEL = os.getenv('PATH_TO_SAVE_PICKLE_MODEL')
 
     PROJECT_NAME = os.getenv("PROJECT_NAME")
