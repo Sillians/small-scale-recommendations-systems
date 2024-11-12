@@ -4,14 +4,12 @@ import requests
 import pandas as pd
 from content_filtering_redisVL.utils.logger import get_logger
 from content_filtering_redisVL.utils.config import get_config
-# from content_filtering_redisVL.data.data_processing import MovieDataProcessor
 
 
 class LoadEmbedding:
     def __init__(self, data):
         self.config = get_config()
         self.logger = get_logger("Using RedisVL embedding generators to generate semantic vector embeddings of the dataset descriptions")
-        # self.data = MovieDataProcessor().get_full_text_data()
         self.data = data
 
 
